@@ -1,0 +1,46 @@
+# === FIX for HERE SDK R8 error ===
+-keep class com.here.sdk.R$styleable { *; }
+-dontwarn com.here.sdk.R$styleable
+-keep class com.here.sdk.R$* { *; }
+
+# === HERE SDK general rules ===
+-keep class com.here.** { *; }
+-keepclassmembers class com.here.** {
+    *;
+}
+-keep @interface com.here.** { *; }
+
+# === Flutter rules ===
+-keep class io.flutter.** { *; }
+-keep class io.flutter.plugins.** { *; }
+-keep class io.flutter.embedding.** { *; }
+-keep class io.flutter.embedding.engine.FlutterEngine { *; }
+-keep class io.flutter.app.FlutterApplication { *; }
+-keep class io.flutter.app.FlutterActivity { *; }
+-keep class io.flutter.app.FlutterFragmentActivity { *; }
+-keep class io.flutter.plugins.GeneratedPluginRegistrant { *; }
+
+# === Flutter Keep Rules ===
+
+# Keep all Dart-related classes
+-keep class io.flutter.** { *; }
+
+# Keep the Flutter engine internals
+-keep class io.flutter.plugins.** { *; }
+
+# Required for Flutter plugins that use reflection
+-keep class io.flutter.embedding.** { *; }
+-keep class io.flutter.embedding.engine.FlutterEngine { *; }
+
+# Avoid stripping entry points
+-keep class io.flutter.app.FlutterApplication { *; }
+-keep class io.flutter.app.FlutterActivity { *; }
+-keep class io.flutter.app.FlutterFragmentActivity { *; }
+
+# Prevent removal of generated plugin registrant
+-keep class io.flutter.plugins.GeneratedPluginRegistrant { *; }
+
+
+# Please add these rules to your existing keep rules in order to suppress warnings.
+# This is generated automatically by the Android Gradle plugin.
+-dontwarn com.here.sdk.R$styleable
